@@ -5,8 +5,8 @@ package com.xxx.algorithm.week1;
  * @Date: 2020/11/1 20:19
  * @Description: 字母异位词分组
  * @Link: https://leetcode-cn.com/problems/group-anagrams/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking: 异位词指的是将字母颠倒位置之后的词，对于这样的词在有序的情况下是相同的。因此构建排序后的词的作为key，value集合所有已经存在异位词的集合
+ * @TimeSpaceComplexityExplain: T O(n + n log(n)) S O(1 + n(hashmap))
  */
 public class Problem01 {
     public List<List<String>> groupAnagrams(String[] strs) {

@@ -5,8 +5,8 @@ package com.xxx.algorithm.week1;
  * @Date: 2020/11/1 20:19
  * @Description: N叉树的层序遍历
  * @Link: https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking: 一层一层元素的遍历，
+ * @TimeSpaceComplexityExplain: 递归T O(n) S O(n + n(所有暂存的集合)) 迭代T O(n) S O(n + 辅助栈(O(n)))
  */
 public class Problem07 {
     public List<List<Integer>> levelOrder(Node root) {

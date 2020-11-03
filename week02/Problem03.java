@@ -5,8 +5,8 @@ package com.xxx.algorithm.week1;
  * @Date: 2020/11/1 20:19
  * @Description: N叉树的前序遍历
  * @Link: https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking: 前序遍历：根->左->右 递归的方式实现、迭代的实现
+ * @TimeSpaceComplexityExplain: 递归 T:O(n) S:O(n)) 迭代：T:O(n) S:O(n) + stack的最大O(log(N))
  */
 public class Problem01 {
     public List<Integer> preorder(Node root) {

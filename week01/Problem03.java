@@ -6,7 +6,7 @@ package com.xxx.algorithm.week1;
  * @Description: 合并两个有序链表
  * @Link: https://leetcode-cn.com/problems/merge-two-sorted-lists/
  * @Thinking: 两个链表同时迭代，谁小将此元素放入合并后的新链表，直到其中一个链表的下一个元素为空
- * @TimeSpaceComplexityExplain: T: S: O(Math.max(n,  m)) S: O(n + m + 1(temp))
+ * @TimeSpaceComplexityExplain: T: O(Math.max(n,  m)) S: O(n + m + 1(空的头节点) +1(temp))
  */
 
 

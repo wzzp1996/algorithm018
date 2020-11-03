@@ -9,7 +9,7 @@ package com.xxx.algorithm.week1;
  *            由于数组空间没有扩大，就只能将超出原数组大小的元素放入数组开头位置
  *            由于k的值可能超过数组的容量，且数组移动k和移动k%nums,length的结果相同
  *            所以移动首部元素k个位置，并将超出边界的元素(k个)直接放回原数组的头部即可
- * @TimeSpaceComplexityExplain: T: S: 待jvm源码分析
+ * @TimeSpaceComplexityExplain: T: O(n+k) S: O(k) 待jvm源码分析确认
  */
 public class Problem02 {
     public void rotate(int[] nums, int k) {
