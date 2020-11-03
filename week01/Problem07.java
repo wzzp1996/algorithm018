@@ -22,9 +22,9 @@ public class Problem07 {
             }
         }
 		// 全部进位
-        int[] newInt = new int[digits.length + 1];
-        newInt[0] = 1;
+        int[] result = new int[digits.length + 1];
+        result[0] = 1;
 //        System.arraycopy(digits, 0, newInt, 1, digits.length - 1);
-        return newInt;
+        return result;
     }
 }
