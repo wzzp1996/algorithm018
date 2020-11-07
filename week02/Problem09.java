@@ -5,48 +5,35 @@ package com.xxx.algorithm.week1;
  * @Date: 2020/11/1 20:19
  * @Description: 前 K 个高频元素
  * @Link: https://leetcode-cn.com/problems/top-k-frequent-elements/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking:hashmap key->nums[i] value->count  k频率最高的PriorityQueue以hashmap的value 排序
+ * @TimeSpaceComplexityExplain: T: O(k * logN) S:O(n)
  */
 public class Problem07 {
-    public List<List<Integer>> levelOrder(Node root) {
-        // 迭代实现
-        // List<List<Integer>> result = new ArrayList<List<Integer>>();
-        // if(root == null) {
-        //     return result;
-        // }
-        // // 使用辅助队列记录元素
-        // Queue<Node> queue = new LinkedList<Node>();
-        // queue.add(root);
-        // while (!queue.isEmpty()){
-        //     List<Integer> level = new ArrayList<Integer>();
-        //     int size = queue.size();
-        //     for (int i = 0; i < size; i++) {
-        //         root = queue.poll();
-        //         level.add(root.val);
-        //         queue.addAll(root.children);
-        //     }
-        //     result.add(level);
-        // }
-        // return result;
-
-        // 递归实现
-        if (root != null) {
-            levelOrder(root, 0);
+    public int[] topKFrequent(int[] nums, int k) {
+        HashMap<Integer, Integer> hashmap = new HashMap<Integer, Integer>(nums.length);
+        for (int i = 0; i < nums.length; i++) {
+            if (hashmap.get(nums[i]) == null) {
+                hashmap.put(nums[i], 1);
+            } else {
+                hashmap.put(nums[i], hashmap.get(nums[i]) + 1);
+            }
+        }
+        PriorityQueue<Integer> p = new PriorityQueue(
+                new Comparator() {
+                    @Override
+                    public int compare(Object o1, Object o2) {
+                        return  hashmap.get(o2) - hashmap.get(o1); // 由高到低
+                    }
+                }
+        );
+        Set<Integer> keys = hashmap.keySet();
+        for (Integer i : keys) {
+            p.offer(i);
+        }
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = p.poll();
         }
         return result;
-    }
-
-    public void levelOrder(Node root, int level) {
-        List<Integer> list;
-        if (result.size() <= level) {
-            list = new ArrayList<Integer>();
-            result.add(list);
-        }
-        list = result.get(level);
-        list.add(root.val);
-        for (int i = 0; i < root.children.size(); i++) {
-            levelOrder(root.children.get(i), level + 1);
-        }
     }
 }

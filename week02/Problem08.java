@@ -5,48 +5,29 @@ package com.xxx.algorithm.week1;
  * @Date: 2020/11/1 20:19
  * @Description: 丑数
  * @Link: https://leetcode-cn.com/problems/chou-shu-lcof/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking:   如何去保证后一项只是是2 3 5 的乘积？ 如果由前面的项来相乘235而得的结果就能保证，但得取最小
+ * @TimeSpaceComplexityExplain:    T:O(n) S:O(1)
  */
 public class Problem07 {
-    public List<List<Integer>> levelOrder(Node root) {
-        // 迭代实现
-        // List<List<Integer>> result = new ArrayList<List<Integer>>();
-        // if(root == null) {
-        //     return result;
-        // }
-        // // 使用辅助队列记录元素
-        // Queue<Node> queue = new LinkedList<Node>();
-        // queue.add(root);
-        // while (!queue.isEmpty()){
-        //     List<Integer> level = new ArrayList<Integer>();
-        //     int size = queue.size();
-        //     for (int i = 0; i < size; i++) {
-        //         root = queue.poll();
-        //         level.add(root.val);
-        //         queue.addAll(root.children);
-        //     }
-        //     result.add(level);
-        // }
-        // return result;
-
-        // 递归实现
-        if (root != null) {
-            levelOrder(root, 0);
+    // problem
+    public int nthUglyNumber(int n) {
+        int[] nums = new int[n];
+        nums[0] = 1;
+        int a = 0, b = 0, c = 0;
+        for (int i = 1; i < n; i++) {
+            // add all ugly number
+            int min = Math.min(Math.min(nums[a] * 2, nums[b] * 3), nums[c] * 5);
+            nums[i] = min;
+            if (min == nums[a] * 2) {
+                a++;
+            }
+            if (min == nums[b] * 3) {
+                b++;
+            }
+            if (min == nums[c] * 5) {
+                c++;
+            }
         }
-        return result;
-    }
-
-    public void levelOrder(Node root, int level) {
-        List<Integer> list;
-        if (result.size() <= level) {
-            list = new ArrayList<Integer>();
-            result.add(list);
-        }
-        list = result.get(level);
-        list.add(root.val);
-        for (int i = 0; i < root.children.size(); i++) {
-            levelOrder(root.children.get(i), level + 1);
-        }
+        return nums[n - 1];
     }
 }
