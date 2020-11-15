@@ -6,7 +6,7 @@
  * @Thinking: 根据前序、中序结果重组二叉树；前序 根->左->右、 中序 左->根->右
  *            从前序取根元素值，判断在中序的位置，进而得到根节点左右元素的个数
  *            将前中序左节点的所有元素，继续递找根节点，直到根节点左右元素为空。根节点右边元素也进行同样处理
- * @TimeSpaceComplexityExplain: T ? S O(n - 1 + n - 2 + n - 3 + ...+ n - n = 1 + ... + n - 1= (n-1)*(n-2)/2)
+ * @TimeSpaceComplexityExplain: T: (n/2)*log(n)   S:O(n - 1 + n - 2 + n - 3 + ...+ n - n = 1 + ... + n - 1= (n-1)*(n-2)/2)
  */
 class Problem02 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {

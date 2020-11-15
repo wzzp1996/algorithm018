@@ -3,8 +3,8 @@
  * @Date: 2020/11/8 20:19
  * @Description: 组合
  * @Link: https://leetcode-cn.com/problems/combinations/
- * @Thinking: 回溯
- * @TimeSpaceComplexityExplain:
+ * @Thinking: 回溯，递归状态：1->(2,3,4) 2->(3,4) 3->4
+ * @TimeSpaceComplexityExplain: T:O((n -1)!) S: O(n)
  */
 class Problem03 {
 
@@ -20,8 +20,10 @@ class Problem03 {
             return;
         }
         for (int i = start; i <= n; i++) {
+            // do something
             list.addLast(i);
             combine(n, ++start, k, list);
+            // clear
             list.removeLast();        
         }
     }

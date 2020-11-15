@@ -13,8 +13,8 @@
  * @Date: 2020/11/8 20:19
  * @Description: 全排列
  * @Link: https://leetcode-cn.com/problems/permutations/
- * @Thinking:
- * @TimeSpaceComplexityExplain:
+ * @Thinking: 递归状态图见图：全排列I递归状态图.png
+ * @TimeSpaceComplexityExplain: T：O(n!) S: O(n)
  */
 class Problem04 {
 
